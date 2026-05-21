@@ -9,11 +9,6 @@ body {
     height: auto;
 }
 
-.logo-container {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 .container-custom {
     margin-top: 30px;
 }
@@ -27,6 +22,7 @@ body {
     background-color: white;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     margin-bottom: 24px;
+    background-clip: content-box;
 }
 
 .product-card img {
