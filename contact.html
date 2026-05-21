@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Treasure Trove Thrift Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Treasure Trove Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalog.html">Catalog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="customer_review.html">Customer Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+	
+    <div class="container my-5 container-custom">
+        <div class="row">
+            <div class="col-lg-6 mx-auto bg-white p-4 border rounded">
+                <h1 class="fw-bold mb-2 h2">Contact Us</h1>
+                <p class="text-muted mb-4">If you have any questions or review notes, feel free to reach out!</p>
+
+                <form id="feedbackForm" action="#" method="POST" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="userName" class="form-label fw-semibold">Full Name</label>
+                        <input type="text" class="form-control" id="userName" placeholder="Enter your full name" required>
+                        <div class="invalid-feedback">A valid name identity input is required.</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="userEmail" class="form-label fw-semibold">Email Address</label>
+                        <input type="email" class="form-control" id="userEmail" placeholder="name@example.com" required>
+                        <div class="invalid-feedback">Please supply a standard syntax email string.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="interactionType" class="form-label fw-semibold">Inquiry Type</label>
+                        <select class="form-select" id="interactionType" required>
+                            <option value="" selected disabled>Choose an option...</option>
+                            <option value="general">General Question</option>
+                            <option value="stock">Inventory Availability</option>
+                            <option value="review">Store Experience Review</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a query category classification.</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="userMessage" class="form-label fw-semibold">Message Body</label>
+                        <textarea class="form-control" id="userMessage" rows="4" placeholder="Type your context here..." required></textarea>
+                        <div class="invalid-feedback">The communication context field text area cannot be sent empty.</div>
+                    </div>
+
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                        <label class="form-check-label small text-secondary" for="termsCheck">
+                            I verify that all the information submitted above is true and correct.
+                        </label>
+                        <div class="invalid-feedback">Verification declaration consent is required.</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2">Submit Secure Feedback</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center p-3">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Treasure Trove Thrift Store. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
