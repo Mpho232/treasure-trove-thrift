@@ -8,16 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Custom Brand Colors for Treasure Trove */
+        /* Consistent Black & White Theme */
         :root {
-            --primary-teal: #1a4d4a;     /* Deep Vintage Teal */
-            --secondary-amber: #d49a3b;  /* Warm Gold/Amber accent */
-            --light-cream: #f9f8f3;      /* Soft background */
-            --dark-charcoal: #2b2b2b;    /* Readable text */
-            --whatsapp-green: #25D366;   /* Official WhatsApp Green */
+            --primary-black: #000000;
+            --dark-gray: #212529;
+            --light-bg: #ffffff;
+            --border-color: #dee2e6;
+            --whatsapp-green: #25D366;
         }
 
-        /* Forces footer to stay at bottom of short pages */
         html, body {
             height: 100%;
         }
@@ -25,29 +24,29 @@
         body {
             display: flex;
             flex-direction: column;
-            background-color: var(--light-cream);
-            color: var(--dark-charcoal);
+            background-color: var(--light-bg);
+            color: var(--primary-black);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* FIXED: Target the actual navbar class instead of navbar-brand */
+        /* Black Navigation Bar & Footer */
         .navbar, .footer-bg {
-            background-color: var(--primary-teal) !important;
+            background-color: var(--primary-black) !important;
         }
 
         .card-custom {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             background-color: #ffffff;
         }
 
+        /* Standard black focus border for form inputs */
         .form-control:focus {
-            border-color: var(--secondary-amber);
-            box-shadow: 0 0 0 0.25rem rgba(212, 154, 59, 0.25);
+            border-color: var(--primary-black);
+            box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.1);
         }
 
-        /* Submit Button Style */
+        /* WhatsApp Button Style */
         .btn-whatsapp {
             background-color: var(--whatsapp-green);
             color: white;
@@ -61,10 +60,6 @@
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-        }
-
-        .accent-text {
-            color: var(--secondary-amber);
         }
     </style>
 </head>
@@ -98,17 +93,17 @@
                     <form id="whatsappForm">
                         <div class="mb-3">
                             <label for="userName" class="form-label fw-semibold">Your Name</label>
-                            <input type="text" class="form-control form-control-lg" id="userName" placeholder="John Doe" required>
+                            <input type="text" class="form-control form-control-lg" id="userName" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="msgSubject" class="form-label fw-semibold">Subject / Item Inquiry</label>
-                            <input type="text" class="form-control form-control-lg" id="msgSubject" placeholder="e.g., Denim Jacket Availability" required>
+                            <input type="text" class="form-control form-control-lg" id="msgSubject" required>
                         </div>
 
                         <div class="mb-4">
                             <label for="userMessage" class="form-label fw-semibold">Your Feedback / Message</label>
-                            <textarea class="form-control" id="userMessage" rows="4" placeholder="Type your feedback details here..." required></textarea>
+                            <textarea class="form-control" id="userMessage" rows="4" required></textarea>
                         </div>
 
                         <div class="d-grid">
@@ -132,26 +127,21 @@
 
     <script>
         document.getElementById('whatsappForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevents the page from refreshing
+            event.preventDefault(); 
 
-            // 1. FIXED: Set your actual target phone number string right here
             const phoneNumber = "26773214110"; 
 
-            // 2. Extract values from the form fields
             const name = document.getElementById('userName').value.trim();
             const subject = document.getElementById('msgSubject').value.trim();
             const feedback = document.getElementById('userMessage').value.trim();
 
-            // 3. Construct a clean message layout for WhatsApp
             const textMessage = `Hello Treasure Trove!%0A%0A` +
                                 `*Name:* ${encodeURIComponent(name)}%0A` +
                                 `*Subject:* ${encodeURIComponent(subject)}%0A` +
                                 `*Feedback:* ${encodeURIComponent(feedback)}`;
 
-            // 4. FIXED: Properly referenced the phoneNumber variable inside the link template literal
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${textMessage}`;
 
-            // 5. Instantly redirect the browser tab to WhatsApp
             window.location.href = whatsappUrl;
         });
     </script>
