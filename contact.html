@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Treasure Trove Thrift Store</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/mixins/_banner.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -18,13 +17,21 @@
             --whatsapp-green: #25D366;   /* Official WhatsApp Green */
         }
 
+        /* Forces footer to stay at bottom of short pages */
+        html, body {
+            height: 100%;
+        }
+
         body {
+            display: flex;
+            flex-direction: column;
             background-color: var(--light-cream);
             color: var(--dark-charcoal);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .navbar-brand, .footer-bg {
+        /* FIXED: Target the actual navbar class instead of navbar-brand */
+        .navbar, .footer-bg {
             background-color: var(--primary-teal) !important;
         }
 
@@ -63,7 +70,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-brand sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">Treasure Trove Store</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -127,24 +134,24 @@
         document.getElementById('whatsappForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevents the page from refreshing
 
-            // 1. Enter your real business phone number here (include country code, remove spaces or plus signs)
-            const phoneNumber = "26771234567"; 
+            // 1. FIXED: Set your actual target phone number string right here
+            const phoneNumber = "26773214110"; 
 
             // 2. Extract values from the form fields
             const name = document.getElementById('userName').value.trim();
             const subject = document.getElementById('msgSubject').value.trim();
             const feedback = document.getElementById('userMessage').value.trim();
 
-            // 3. Construct a neat, clean message layout for WhatsApp
+            // 3. Construct a clean message layout for WhatsApp
             const textMessage = `Hello Treasure Trove!%0A%0A` +
                                 `*Name:* ${encodeURIComponent(name)}%0A` +
                                 `*Subject:* ${encodeURIComponent(subject)}%0A` +
                                 `*Feedback:* ${encodeURIComponent(feedback)}`;
 
-            // 4. Generate the universal WhatsApp API URL
-            const whatsappUrl = `https://wa.me/${26773214110}?text=${textMessage}`;
+            // 4. FIXED: Properly referenced the phoneNumber variable inside the link template literal
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${textMessage}`;
 
-            // 5. Instantly redirect the customer's browser tab to WhatsApp
+            // 5. Instantly redirect the browser tab to WhatsApp
             window.location.href = whatsappUrl;
         });
     </script>
